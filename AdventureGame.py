@@ -57,7 +57,8 @@ def intro(enemy, weapon, score):
     print_pause("In front of you is a house.")
     print_pause("To your right is a dark cave.")
     print_pause(
-        f"In your hand, you hold your trusty (but not very effective) {weapon}."
+        f"In your hand, you hold your trusty (but not very effective) "
+        f"{weapon}."
     )
     show_score(score)
 
@@ -81,7 +82,9 @@ def cave(enemy, weapon, special_weapon_found, score):
         print_pause("It turns out to be only a very small cave.")
         print_pause("Your eye catches a glint of metal behind a rock...")
         print_pause(f"You have found the magical Sword of {enemy} Slaying!")
-        print_pause("You discard your old dagger and take the sword with you.")
+        print_pause(
+            "You discard your old dagger and take the sword with you."
+        )
         weapon = "Sword of Slaying"
         special_weapon_found = True
         score += 10  # reward for finding the special weapon
@@ -96,7 +99,10 @@ def cave(enemy, weapon, special_weapon_found, score):
 def house(enemy, weapon, special_weapon_found, score):
     """Handle entering the house."""
     print_pause("You walk up to the door of the house.")
-    print_pause(f"You are about to knock when the door opens and out steps a {enemy}.")
+    print_pause(
+        f"You are about to knock when the door opens "
+        f"and out steps a {enemy}."
+    )
     print_pause(f"Eep! This is the {enemy}’s house!")
     print_pause(f"The {enemy} attacks you!")
     if weapon == "dagger":
@@ -113,10 +119,16 @@ def fight(enemy, weapon, special_weapon_found, score):
     if choice == "1":
         if weapon == "Sword of Slaying":
             print_pause(
-                f"As the {enemy} lunges, you raise your glowing Sword of Slaying!"
+                f"As the {enemy} lunges, you raise your glowing "
+                "Sword of Slaying!"
             )
-            print_pause(f"The {enemy} takes one look at your sword... and flees!")
-            print_pause(f"You have rid the village of the {enemy}. Victory is yours!")
+            print_pause(
+                f"The {enemy} takes one look at your sword... and flees!"
+            )
+            print_pause(
+                f"You have rid the village of the {enemy}. "
+                "Victory is yours!"
+            )
             score += 20
         else:
             print_pause("You fight bravely...")
@@ -125,8 +137,8 @@ def fight(enemy, weapon, special_weapon_found, score):
             score -= 10
     else:
         print_pause(
-            "You run back into the field. Luckily, you don’t seem to have "
-            "been followed."
+            "You run back into the field. Luckily, you don’t seem "
+            "to have been followed."
         )
         score -= 2
         show_score(score)
@@ -152,7 +164,10 @@ def play_game():
         field(enemy, weapon, special_weapon_found, score)
 
         # Ask if player wants to play again
-        choice = valid_input("Would you like to play again? (y/n): ", ["y", "n"])
+        choice = valid_input(
+            "Would you like to play again? (y/n): ",
+            ["y", "n"]
+        )
         if choice == "n":
             print_pause("Thanks for playing! Goodbye.", 1)
             play = False
@@ -162,3 +177,7 @@ def play_game():
 
 if __name__ == "__main__":
     play_game()
+
+
+
+
